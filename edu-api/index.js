@@ -50,6 +50,14 @@ app.get('/token', (req, res) => {
   res.json({ token });
 });
 
+// Rota insegura: cálculo com eval
+app.get('/calc', (req, res) => {
+  const expr = req.query.expr || '2+2';
+  // Insecure eval
+  const result = eval(expr);
+  res.json({ result });
+});
+
 // 2) Middleware JWT protege tudo que vier após ele
 app.use(
   '/users',
