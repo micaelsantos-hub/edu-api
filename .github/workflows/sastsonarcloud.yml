@@ -25,6 +25,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./edu-api
 
       - name: Run SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
